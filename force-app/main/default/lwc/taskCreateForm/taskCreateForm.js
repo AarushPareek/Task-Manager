@@ -1,0 +1,18 @@
+import { LightningElement } from 'lwc';
+import { ShowToastEvent } from 'lightning/platformShowToastEvent';
+
+export default class TaskCreateForm extends LightningElement {
+    
+    handleSuccess(event) {
+        this.dispatchEvent(
+            new ShowToastEvent({
+                title: 'Success',
+                message: 'Task created successfully!',
+                variant: 'success'
+            })
+        );
+
+        const customEvent = new CustomEvent('taskcreated');
+        this.dispatchEvent(customEvent);
+    }
+}

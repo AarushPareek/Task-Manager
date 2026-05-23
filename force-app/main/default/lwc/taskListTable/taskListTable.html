@@ -1,0 +1,12 @@
+<template>
+    <lightning-card title="Task List View" icon-name="utility:table">
+        <div class="slds-var-p-around_medium" style="height: 400px;">
+            <lightning-datatable
+                key-field="id"
+                data={tableData}
+                columns={columns}
+                hide-checkbox-column>
+            </lightning-datatable>
+        </div>
+    </lightning-card>
+</template>

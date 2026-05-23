@@ -1,0 +1,58 @@
+<template>
+    <lightning-card title="Create Task" icon-name="utility:edit_form">
+        <div class="slds-var-p-around_medium">
+            
+            <lightning-record-edit-form object-api-name="Task" onsuccess={handleSuccess}>
+                <lightning-messages></lightning-messages>
+
+                <div class="slds-grid slds-wrap slds-gutters">
+                    <div class="slds-col slds-size_1-of-1 slds-var-m-bottom_small">
+                        <lightning-input-field 
+                            field-name="Subject" 
+                            required>
+                        </lightning-input-field>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-2 slds-var-m-bottom_small">
+                        <lightning-input-field 
+                            field-name="ActivityDate">
+                        </lightning-input-field>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-2 slds-var-m-bottom_small">
+                        <lightning-input-field 
+                            field-name="Status">
+                        </lightning-input-field>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-1 slds-var-m-bottom_small">
+                        <lightning-input-field 
+                            field-name="Priority">
+                        </lightning-input-field>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-2 slds-var-m-bottom_small">
+                        <lightning-input-field 
+                            field-name="WhoId">
+                        </lightning-input-field>
+                    </div>
+
+                    <div class="slds-col slds-size_1-of-2 slds-var-m-bottom_small">
+                        <lightning-input-field 
+                            field-name="WhatId">
+                        </lightning-input-field>
+                    </div>
+                </div>
+
+                <div class="slds-var-m-top_medium slds-text-align_right">
+                    <lightning-button 
+                        type="submit" 
+                        variant="brand" 
+                        label="Save Task">
+                    </lightning-button>
+                </div>
+            </lightning-record-edit-form>
+
+        </div>
+    </lightning-card>
+</template>
