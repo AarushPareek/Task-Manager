@@ -3,13 +3,17 @@
         <div class="slds-var-m-around_medium">
             
             <div class="slds-var-m-bottom_medium">
-                <c-task-search-bar onsearchchange={handleSearch}></c-task-search-bar>
+                <c-task-search-bar 
+                    onsearchchange={handleSearch}>
+                </c-task-search-bar>
             </div>
 
             <div class="slds-grid slds-wrap slds-gutters">
                 
                 <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
-                    <c-task-create-form ontaskcreated={handleTaskCreated}></c-task-create-form>
+                    <c-task-create-form 
+                        ontaskcreated={handleTaskCreated}>
+                    </c-task-create-form>
                 </div>
 
                 <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
