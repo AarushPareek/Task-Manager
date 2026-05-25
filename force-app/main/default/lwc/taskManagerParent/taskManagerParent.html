@@ -1,29 +1,23 @@
 <template>
     <lightning-card title="Task Management Dashboard" icon-name="standard:task">
-        <div class="slds-var-m-around_medium">
+
+        <div class="slds-grid slds-wrap slds-gutters">
             
-            <div class="slds-var-m-bottom_medium">
-                <c-task-search-bar 
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                <c-task-create-form 
+                    ontaskcreated={handleTaskCreated}>
+                </c-task-create-form>
+            </div>
+
+            <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
+                <c-task-list-table 
+                    class="task-table-component"
+                    search-key={searchKey}
                     onsearchchange={handleSearch}>
-                </c-task-search-bar>
+                </c-task-list-table>
             </div>
 
-            <div class="slds-grid slds-wrap slds-gutters">
-                
-                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
-                    <c-task-create-form 
-                        ontaskcreated={handleTaskCreated}>
-                    </c-task-create-form>
-                </div>
-
-                <div class="slds-col slds-size_1-of-1 slds-medium-size_6-of-12">
-                    <c-task-list-table 
-                        class="task-table-component"
-                        search-key={searchKey}>
-                    </c-task-list-table>
-                </div>
-
-            </div>
         </div>
+        
     </lightning-card>
 </template>

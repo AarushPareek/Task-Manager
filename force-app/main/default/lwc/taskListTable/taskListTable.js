@@ -3,16 +3,26 @@ import { refreshApex } from '@salesforce/apex';
 import getRecentTasks from '@salesforce/apex/TaskManagerController.getRecentTasks';
 
 export default class TaskListTable extends LightningElement {
+
+    handleSearchChange(event){
+        const searchString = event.target.value;
+
+        const searchEvent = new CustomEvent('searchchange', {
+            detail: searchString
+        });
+        this.dispatchEvent(searchEvent);
+    }
+
     @api searchKey = '';
 
     // Updated the Subject column definition to type 'url'
     columns = [
         { 
             label: 'Subject', 
-            fieldName: 'TaskUrl', // This points to the URL property we generate below
+            fieldName: 'TaskUrl',
             type: 'url',
             typeAttributes: {
-                label: { fieldName: 'Subject' }, // Displays the actual Subject text as the link label
+                label: { fieldName: 'Subject' },
                 target: '_blank'
             }
         },
@@ -33,14 +43,13 @@ export default class TaskListTable extends LightningElement {
             this.tableData = result.data.map(task => {
                 return {
                     ...task,
-                    WhoName: task.Who ? task.Who.Name : '',
-                    WhatName: task.What ? task.What.Name : '',
-                    // Dynamically constructing the standard Lightning record view URL string
+                    WhoName: task.Who.Name,
+                    WhatName: task.What.Name,
                     TaskUrl: `/lightning/r/Task/${task.Id}/view`
                 };
             });
         } else if (result.error) {
-            console.error('Error fetching tasks: ', result.error);
+            console.error('Error: ', result.error);
         }
     }
 
