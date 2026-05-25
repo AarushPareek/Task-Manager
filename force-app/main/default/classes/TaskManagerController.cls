@@ -7,7 +7,7 @@ public with sharing class TaskManagerController {
 
         return [SELECT Id, Subject, Status, Priority, ActivityDate, WhoId, Who.Name, WhatId, What.Name
                 FROM Task 
-                WHERE Subject LIKE :key
-                LIMIT 10];
+                WHERE Subject 
+                LIKE :key];
     }
 }

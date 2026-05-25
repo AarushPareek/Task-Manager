@@ -23,7 +23,7 @@ export default class TaskCreateForm extends LightningElement {
         this.currentStep = '2';
     }
 
-    handleUploadFinished(event) {
+    handleFileUpload(event) {
         const uploadedFiles = event.detail.files.length;
         this.dispatchEvent(
             new ShowToastEvent({

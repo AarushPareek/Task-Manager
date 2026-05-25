@@ -43,10 +43,8 @@ export default class TaskListTable extends LightningElement {
             this.tableData = result.data.map(task => {
                 return {
                     ...task,
-                    // WhoName: task.Who.Name,
-                    // WhatName: task.What.Name,
-                    WhoName: task.Who ? task.Who.Name : '-',
-                    WhatName: task.What ? task.What.Name : '-',
+                    WhoName: task.Who.Name,
+                    WhatName: task.What.Name,
                     TaskUrl: `/lightning/r/Task/${task.Id}/view`
                 };
             });
