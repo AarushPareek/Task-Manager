@@ -10,11 +10,6 @@ export default class TaskCreateForm extends LightningElement {
         return this.currentStep === '1';
     }
 
-    // Allowed file formats for uploading
-    get acceptedFormats() {
-        return ['.pdf', '.png', '.jpg', '.jpeg', '.docx', '.xlsx', '.csv'];
-    }
-
     // When the user clicks 'Next' and the record saves then:
     handleSuccess(event) {
         // 1. Extract the newly generated Task Record ID.
@@ -26,6 +21,17 @@ export default class TaskCreateForm extends LightningElement {
 
         // 3. Change page to the File Upload screen
         this.currentStep = '2';
+    }
+
+    handleUploadFinished(event) {
+        const uploadedFiles = event.detail.files.length;
+        this.dispatchEvent(
+            new ShowToastEvent({
+                title: 'Files Uploaded',
+                message: 'Document(s) attached to the task successfully!',
+                variant: 'success'
+            })
+        );
     }
 
     handleFinish() {
