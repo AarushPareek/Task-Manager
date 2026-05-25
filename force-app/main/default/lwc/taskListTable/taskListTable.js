@@ -1,16 +1,13 @@
-import { LightningElement, wire, api } from 'lwc';
+import { LightningElement, wire, api, track } from 'lwc';
 import { refreshApex } from '@salesforce/apex';
 import getRecentTasks from '@salesforce/apex/TaskManagerController.getRecentTasks';
 
 export default class TaskListTable extends LightningElement {
 
-    handleSearchChange(event){
-        const searchString = event.target.value;
+    @track searchKey = '';
 
-        const searchEvent = new CustomEvent('searchchange', {
-            detail: searchString
-        });
-        this.dispatchEvent(searchEvent);
+    handleSearchChange(event) {
+        this.searchKey = event.target.value;
     }
 
     @api searchKey = '';
